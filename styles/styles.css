@@ -1,0 +1,45 @@
+#tj-game {
+    height: 300px;
+    width: 600px;
+    border-style: dotted;
+    border-width: 1px;
+    border-color: darkgray;
+    overflow: hidden;
+}
+
+#trump {
+    height: 120px;
+    width: 95px;
+    background-image: url("../images/trump.png");
+    background-repeat: no-repeat; 
+    background-size: cover;
+    position: relative;
+    top: 180px;
+}
+
+#barrier {
+    height: 50px;
+    width: 150px;
+    position: relative;
+    left: 450px;
+    top: 128px;
+    border-style: solid;
+    border-color: black;
+    animation: barrier 2s infinite linear;
+    
+}
+
+#barrier p {
+    color: black;
+    font-size: 20px;
+    font-family: arial, sans-serif;
+    line-height: 15px;
+    text-align: center;
+    
+}
+
+@keyframes barrier {
+    0%{left:600px;}
+    100%{left:-150px;}
+}
+
