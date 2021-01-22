@@ -15,7 +15,18 @@
     background-size: cover;
     position: relative;
     top: 180px;
+    
 }
+.animate{
+    animation: jump 0.9s linear;
+}
+@keyframes jump{
+    0%{top: 180px;}
+    30%{top: 20px;}
+    70%{top: 20px;}
+    100%{top: 180px;}
+}
+
 
 #barrier {
     height: 50px;
