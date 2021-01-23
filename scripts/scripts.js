@@ -66,6 +66,7 @@ function start(){
     barrier.classList.add("startMoving"); // when start button pressed, barrier starts moving
     document.getElementById("startButton").style.display = "none" // hides start button 
     document.getElementById("lose").style.display = "none"; // hides 'you lose' screen if on screen
+     document.getElementById("startbuttondiv").style.display = "none"; // hides 'start' screen if on screen
     document.getElementById("jumpButton").style.display = "block"; // shows jump button
     document.getElementById("trump").style.display = "block";  // shows trump if hidden
     document.getElementById("barrier").style.display = "block"; // shows barrier if hidden
