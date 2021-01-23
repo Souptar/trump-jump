@@ -52,6 +52,9 @@ let scandalDates = [
 
 // start/restart button
 function start(){
+        var score = 0;
+    var scandalBoxString = "";
+
     barrier.classList.add("startMoving"); // when start button pressed, barrier starts moving
     document.getElementById("startButton").style.display = "none" // hides start button 
     document.getElementById("lose").style.display = "none"; // hides 'you lose' screen if on screen
@@ -84,6 +87,8 @@ function jump(){
 
 // checks every 10ms if trump and barrier are touching
 var checkDead = setInterval(function() {
+    scandalBoxString = scandals[score];
+    document.getElementById("scandalBox").innerHTML = scandalBoxString;
     let trumpTop = parseInt(window.getComputedStyle(trump).getPropertyValue("top")); //evaluate top position of Trump and parse as integer to remove 'px' from result
     let barrierLeft = parseInt(window.getComputedStyle(barrier).getPropertyValue("left")); //evaluate left position of Barrier and parse as integer to remove 'px' from result
     if(barrierLeft<95 && barrierLeft>-95 && trumpTop>=130){ //only true if Trump and Barrier are touching
@@ -96,6 +101,9 @@ var checkDead = setInterval(function() {
                 document.getElementById("startButton").innerHTML = "Restart"; // changes text to restart
                 document.getElementById("jumpButton").style.display = "none"; // hides jump button
                 }, 500);
+                score = score + 1;
+                scandalBoxString = scandals[score];
+                document.getElementById("scandalBox").innerHTML = scandalBoxString;
     }
 }, 10);
 
