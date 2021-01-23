@@ -7,6 +7,12 @@
     overflow: hidden;
 }
 
+#lose {
+    height: 300px;
+    width: 600px;
+    display: none;
+}
+
 #trump {
     height: 120px;
     width: 95px;

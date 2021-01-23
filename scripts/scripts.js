@@ -47,6 +47,11 @@ let scandalDates = [
 function start(){
     barrier.classList.add("startMoving"); // when start button pressed, barrier starts moving
     document.getElementById("startButton").style.display = "none" // hides start button 
+    document.getElementById("lose").style.display = "none"; // hides 'you lose' screen if on screen
+    document.getElementById("jumpButton").style.display = "inline-block"; // shows jump button
+    document.getElementById("trump").style.display = "block";  // shows trump if hidden
+    document.getElementById("barrier").style.display = "block"; // shows barrier if hidden
+    
 }
 
 function jump(){
@@ -62,9 +67,14 @@ var checkDead = setInterval(function() {
     let barrierLeft = parseInt(window.getComputedStyle(barrier).getPropertyValue("left")); //evaluate left position of Barrier and parse as integer to remove 'px' from result
     if(barrierLeft<95 && barrierLeft>-95 && trumpTop>=130){ //only true if Trump and Barrier are touching
         barrier.classList.remove("startMoving"); // stop animation
-        alert("Game Over"); //placeholder alert
-        document.getElementById("startButton").style.display = "inline-block" // start button reappears
-
+            document.getElementById("trump").style.display = "none"; // hides trump
+            document.getElementById("barrier").style.display = "none"; // hides barrier
+            document.getElementById("lose").style.display = "inline-block"; // shows 'you lose' screen
+            setTimeout(function (){ // delay so player doesnt click 'restart' as soon as it comes up
+                document.getElementById("startButton").style.display = "inline-block" // start button reappears
+                document.getElementById("startButton").innerHTML = "Restart"; // changes text to restart
+                document.getElementById("jumpButton").style.display = "none"; // hides jump button
+                }, 500);
     }
 }, 10);
 
