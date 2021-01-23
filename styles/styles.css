@@ -1,11 +1,12 @@
 /* Game div */
 #tj-game {
     height: 300px;
-    width: 600px;
+    width: 85vw;
     border-style: dotted;
     border-width: 1px;
     border-color: darkgray;
     overflow: hidden;
+    margin: auto;
 }
 
 /* 'You Lose' div */
@@ -54,8 +55,8 @@
     animation: barrier 2s infinite linear;
 }
 @keyframes barrier {
-    0%{left:600px;}
-    100%{left:-150px;}
+    0%{left:100%;}
+    100%{left:-15%;}
 }
 
 /* text content of barrier */
@@ -66,4 +67,9 @@
     line-height: 15px;
     text-align: center;
     
+}
+
+button {
+    margin:0 auto;
+    display:block;
 }
