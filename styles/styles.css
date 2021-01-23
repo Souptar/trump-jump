@@ -36,8 +36,10 @@
     top: 128px;
     border-style: solid;
     border-color: black;
+}
+
+.startMoving {
     animation: barrier 2s infinite linear;
-    
 }
 
 #barrier p {
