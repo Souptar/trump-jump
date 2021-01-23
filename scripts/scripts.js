@@ -1,6 +1,7 @@
 var trump = document.getElementById("trump"); 
 var barrier = document.getElementById("barrier");
 var score = 0;
+var scandalBoxString = "";
 
 //array to iterate through for each barrier
 let scandals = [
@@ -57,7 +58,8 @@ function start(){
     document.getElementById("jumpButton").style.display = "block"; // shows jump button
     document.getElementById("trump").style.display = "block";  // shows trump if hidden
     document.getElementById("barrier").style.display = "block"; // shows barrier if hidden
-    document.getElementById("scandalBox").innerHTML = "hello";
+    scandalBoxString = scandals[score];
+    document.getElementById("scandalBox").innerHTML = scandalBoxString;
 
     
 }
@@ -73,10 +75,10 @@ document.body.onkeyup = function(e){
 function jump(){
     if(trump.classList == "animate"){return} // if 'animate class is already applied to trump div, stop
     trump.classList.add("animate"); // otherwise add animate class
+    score = score + 1;
+    console.log(score);
     setTimeout(function(){
         trump.classList.remove("animate");
-        score = score + 1;
-        console.log(score)
     },900); // after 900ms (time for jump animaation to complete), remove class
 }
 
