@@ -1,5 +1,6 @@
 var trump = document.getElementById("trump"); 
 var barrier = document.getElementById("barrier");
+var score = 0;
 
 //array to iterate through for each barrier
 let scandals = [
@@ -56,10 +57,17 @@ function start(){
     document.getElementById("jumpButton").style.display = "block"; // shows jump button
     document.getElementById("trump").style.display = "block";  // shows trump if hidden
     document.getElementById("barrier").style.display = "block"; // shows barrier if hidden
+    document.getElementById("scandalBox").innerHTML = "hello";
+
     
 }
 
-// aspects of the following two code blocks are based on a tutorial: https://www.youtube.com/watch?v=bG2BmmYr9NQ
+
+document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
+        //your code
+    }
+}
 
 // jump button functionality
 function jump(){
@@ -67,6 +75,8 @@ function jump(){
     trump.classList.add("animate"); // otherwise add animate class
     setTimeout(function(){
         trump.classList.remove("animate");
+        score = score + 1;
+        console.log(score)
     },900); // after 900ms (time for jump animaation to complete), remove class
 }
 
