@@ -52,11 +52,16 @@ let scandalDates = [
     "October 2020",
 ]
 
+    if(window.innerHeight > window.innerWidth){
+    alert("Rotate your perfect phone")
+
+    }
 
 // start/restart button
 function start(){
         var score = 0;
     var scandalBoxString = "";
+
 
     barrier.classList.add("startMoving"); // when start button pressed, barrier starts moving
     document.getElementById("startButton").style.display = "none" // hides start button 
