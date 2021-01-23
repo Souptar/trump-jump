@@ -1,5 +1,7 @@
 var trump = document.getElementById("trump"); 
 var barrier = document.getElementById("barrier");
+
+//array to iterate through for each barrier
 let scandals = [
     '"Mexicans = criminals"',
     'Muslim ban',
@@ -21,6 +23,8 @@ let scandals = [
     'COVID-19 Response', 
     'Amy Coney Barrett'
 ]
+
+// array to iterate through for the date over the game and also to show how far you got if you hit the barrier 
 let scandalDates = [
     "June 2015",
     "December 2015",
@@ -43,7 +47,7 @@ let scandalDates = [
     "October 2020",
 ]
 
-
+// start/restart button
 function start(){
     barrier.classList.add("startMoving"); // when start button pressed, barrier starts moving
     document.getElementById("startButton").style.display = "none" // hides start button 
@@ -54,6 +58,9 @@ function start(){
     
 }
 
+// aspects of the following two code blocks are based on a tutorial: https://www.youtube.com/watch?v=bG2BmmYr9NQ
+
+// jump button functionality
 function jump(){
     if(trump.classList == "animate"){return} // if 'animate class is already applied to trump div, stop
     trump.classList.add("animate"); // otherwise add animate class
@@ -62,6 +69,7 @@ function jump(){
     },900); // after 900ms (time for jump animaation to complete), remove class
 }
 
+// checks every 10ms if trump and barrier are touching
 var checkDead = setInterval(function() {
     let trumpTop = parseInt(window.getComputedStyle(trump).getPropertyValue("top")); //evaluate top position of Trump and parse as integer to remove 'px' from result
     let barrierLeft = parseInt(window.getComputedStyle(barrier).getPropertyValue("left")); //evaluate left position of Barrier and parse as integer to remove 'px' from result
