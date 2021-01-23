@@ -2,6 +2,9 @@ var trump = document.getElementById("trump");
 var barrier = document.getElementById("barrier");
 var score = 0;
 var scandalBoxString = "";
+var scandalDate = "";
+let loseString = "";
+
 
 //array to iterate through for each barrier
 let scandals = [
@@ -70,7 +73,7 @@ function start(){
 
 document.body.onkeyup = function(e){
     if(e.keyCode == 32){
-        //your code
+        jump()
     }
 }
 
@@ -88,6 +91,10 @@ function jump(){
 // checks every 10ms if trump and barrier are touching
 var checkDead = setInterval(function() {
     scandalBoxString = scandals[score];
+    scandalDate = "";
+
+    scandalDate = scandalDates[score];
+
     document.getElementById("scandalBox").innerHTML = scandalBoxString;
     let trumpTop = parseInt(window.getComputedStyle(trump).getPropertyValue("top")); //evaluate top position of Trump and parse as integer to remove 'px' from result
     let barrierLeft = parseInt(window.getComputedStyle(barrier).getPropertyValue("left")); //evaluate left position of Barrier and parse as integer to remove 'px' from result
@@ -95,6 +102,11 @@ var checkDead = setInterval(function() {
         barrier.classList.remove("startMoving"); // stop animation
             document.getElementById("trump").style.display = "none"; // hides trump
             document.getElementById("barrier").style.display = "none"; // hides barrier
+            loseString = "<h2>You lose, Don.<br>You only made it to "
+            loseString = loseString + scandalDate + "</h2>";
+            scandalDate = "";
+            document.getElementById("lose").innerHTML = loseString;
+            console.log(loseString)
             document.getElementById("lose").style.display = "inline-block"; // shows 'you lose' screen
             setTimeout(function (){ // delay so player doesnt click 'restart' as soon as it comes up
                 document.getElementById("startButton").style.display = "block" // start button reappears
