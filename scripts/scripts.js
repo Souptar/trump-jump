@@ -47,6 +47,7 @@ let scandalDates = [
     "October 2020",
 ]
 
+
 // start/restart button
 function start(){
     barrier.classList.add("startMoving"); // when start button pressed, barrier starts moving
