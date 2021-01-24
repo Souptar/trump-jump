@@ -5,7 +5,7 @@ var scandalBoxString = "";
 var scandalDate = "";
 let loseString = "";
 var scandalBoxString = "";
-var maxscore = 5;
+var maxscore = 19;
 
 //array to iterate through for each barrier
 let scandals = [
