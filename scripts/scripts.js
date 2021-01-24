@@ -5,7 +5,7 @@ var scandalBoxString = "";
 var scandalDate = "";
 let loseString = "";
 var scandalBoxString = "";
-
+var maxscore = 20;
 
 //array to iterate through for each barrier
 let scandals = [
@@ -74,9 +74,11 @@ function start(){
     document.getElementById("barrier").style.display = "block"; // shows barrier if hidden
     scandalBoxString = scandals[score];
     document.getElementById("scandalBox").innerHTML = scandalBoxString;
-
-    
 }
+
+var scorecounter = setInterval(function() {
+        score = score + 1;
+    },2000); 
 
 
 document.body.onkeyup = function(e){
@@ -89,9 +91,8 @@ document.body.onkeyup = function(e){
 function jump(){
     if(trump.classList == "animate"){return} // if 'animate class is already applied to trump div, stop
     trump.classList.add("animate"); // otherwise add animate class
-                        scandalDate = scandalDates[score];
+                scandalDate = scandalDates[score];
                 document.getElementById("scandaldate").innerHTML = scandalDate;
-    score = score + 1;
 
     console.log(score);
     setTimeout(function(){
@@ -131,6 +132,12 @@ var checkDead = setInterval(function() {
                 scandalDate = scandalDates[score];
                 document.getElementById("scandalBox").innerHTML = scandalBoxString;
                 document.getElementById("scandaldate").innerHTML = scandalDate;
-    }
+       }
+                if(score == maxscore){ //only true if Trump and Barrier are touching
+                    barrier.classList.remove("startMoving"); // stop animation
+                    document.getElementById("trump").style.display = "none"; // hides trump
+                    document.getElementById("barrier").style.display = "none"; // hides barrier
+                    loseString = "<h2>You lose, Don.<br>You only made it to "
+            }
 }, 10);
 

@@ -8,9 +8,18 @@ h1, h2 {
     width: 85vw;
     border-style: dotted;
     border-width: 1px;
+
     border-color: darkgray;
     overflow: hidden;
     margin: auto;
+}
+
+#scandaldate {
+    width: 200px;
+    height: 100px;
+    position: fixed;
+    top: 20%;
+    left: 45%;
 }
 
 /* 'You Lose' div */
