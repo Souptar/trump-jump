@@ -1,3 +1,7 @@
+h1, h2 {
+    text-align: center;
+}
+
 /* Game div */
 #tj-game {
     height: 300px;
