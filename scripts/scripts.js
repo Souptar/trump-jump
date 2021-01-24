@@ -5,7 +5,7 @@ var scandalBoxString = "";
 var scandalDate = "";
 let loseString = "";
 var scandalBoxString = "";
-var maxscore = 20;
+var maxscore = 5;
 
 //array to iterate through for each barrier
 let scandals = [
@@ -64,6 +64,7 @@ function start(){
     score = 0;
     scandalDate = scandalDates[score];
     document.getElementById("scandaldate").innerHTML = scandalDate;
+    document.getElementById("scandaldate").style.display = "inline-block"; // Shows the date counter when game starts
 
     barrier.classList.add("startMoving"); // when start button pressed, barrier starts moving
     document.getElementById("startButton").style.display = "none" // hides start button 
@@ -78,6 +79,10 @@ function start(){
 
 var scorecounter = setInterval(function() {
         score = score + 1;
+        scandalDate = scandalDates[score];
+        if(score <= maxscore){
+        document.getElementById("scandaldate").innerHTML = scandalDate;
+        }
     },2000); 
 
 
@@ -91,8 +96,7 @@ document.body.onkeyup = function(e){
 function jump(){
     if(trump.classList == "animate"){return} // if 'animate class is already applied to trump div, stop
     trump.classList.add("animate"); // otherwise add animate class
-                scandalDate = scandalDates[score];
-                document.getElementById("scandaldate").innerHTML = scandalDate;
+
 
     console.log(score);
     setTimeout(function(){
@@ -106,8 +110,9 @@ var checkDead = setInterval(function() {
     scandalDate = "";
 
     scandalDate = scandalDates[score];
-
+        if(score <= maxscore){
     document.getElementById("scandalBox").innerHTML = scandalBoxString;
+        }
     let trumpTop = parseInt(window.getComputedStyle(trump).getPropertyValue("top")); //evaluate top position of Trump and parse as integer to remove 'px' from result
     let barrierLeft = parseInt(window.getComputedStyle(barrier).getPropertyValue("left")); //evaluate left position of Barrier and parse as integer to remove 'px' from result
     if(barrierLeft<95 && barrierLeft>-95 && trumpTop>=130){ //only true if Trump and Barrier are touching
@@ -124,6 +129,7 @@ var checkDead = setInterval(function() {
             setTimeout(function (){ // delay so player doesnt click 'restart' as soon as it comes up
                 document.getElementById("startButton").style.display = "block" // start button reappears
                 document.getElementById("startButton").innerHTML = "Restart"; // changes text to restart
+                score = 0;
                 document.getElementById("jumpButton").style.display = "none"; // hides jump button
                  document.getElementById("startbuttondiv").style.display = "inline-block"; // hides 'start' screen if on scre
                 }, 500);
@@ -137,7 +143,32 @@ var checkDead = setInterval(function() {
                     barrier.classList.remove("startMoving"); // stop animation
                     document.getElementById("trump").style.display = "none"; // hides trump
                     document.getElementById("barrier").style.display = "none"; // hides barrier
-                    loseString = "<h2>You lose, Don.<br>You only made it to "
+                    document.getElementById("scandaldate").style.display = "none"; // Hides the date counter so the user does not see undefined
+                    document.getElementById("jumpButton").style.display = "none"; // hides jump button
+                    document.getElementById("tj-game").innerHTML = document.getElementById("almostFinal").innerHTML;
+                    score = score +1;
+
+                  
+                    
             }
 }, 10);
 
+function ContestResults(){
+document.getElementById("tj-game").innerHTML = document.getElementById("nope").innerHTML
+    setTimeout(function(){
+        Nope();
+    },1000); 
+}
+
+function Nope(){
+document.getElementById("tj-game").innerHTML = document.getElementById("almostFinal").innerHTML
+    setTimeout(function(){
+        RealEnd();
+    },1000); 
+}
+
+function RealEnd(){
+document.getElementById("tj-game").innerHTML = document.getElementById("final").innerHTML
+
+
+}

@@ -4,11 +4,11 @@ h1, h2 {
 
 /* Game div */
 #tj-game {
-    height: 300px;
+    height: 320px;
     width: 85vw;
     border-style: dotted;
     border-width: 1px;
-
+    z-index: 3;
     border-color: darkgray;
     overflow: hidden;
     margin: auto;
@@ -16,10 +16,12 @@ h1, h2 {
 
 #scandaldate {
     width: 200px;
-    height: 100px;
-    position: fixed;
-    top: 20%;
+    height: 1px;
+    position: relative;
+    z-index: 3;
+    top: 0%;
     left: 45%;
+    display: none;
 }
 
 /* 'You Lose' div */
@@ -86,4 +88,16 @@ h1, h2 {
 button {
     margin:0 auto;
     display:block;
+}
+
+#almostFinal {
+    display: none;
+}
+
+#final {
+    display: none;
+}
+
+#nope {
+    display: none;
 }
